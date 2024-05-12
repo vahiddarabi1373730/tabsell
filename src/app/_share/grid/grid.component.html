@@ -1,0 +1,14 @@
+<ag-grid-angular
+  class="ag-theme-quartz"
+  style="height: 100%"
+  [rowData]="gridOptions.rowData"
+  [columnDefs]="gridOptions.columnDefs"
+  [rowSelection]="gridOptions.rowSelection"
+  (rowSelected)="rowSelected.emit($event)"
+  [enableRtl]="true"
+  [components]="gridOptions.components"
+  (gridReady)="onGridReady($event)"
+
+
+>
+</ag-grid-angular>

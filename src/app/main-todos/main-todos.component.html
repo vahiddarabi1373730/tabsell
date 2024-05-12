@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="list-todos">
+    <app-form-generator  (submitFormEmitter)="submitForm($event)" [formConfig]="formConfig"></app-form-generator>
+    <app-button [button]="createList"></app-button>
+    <app-select [config]="configSelect" (changeSelect)="changeSelect($event)"></app-select>
+  </div>
+  <app-grid [gridOptions]="gridOptions" (rowSelected)="onRowSelected($event)"></app-grid>
+
+</div>

@@ -1,0 +1,11 @@
+<form [formGroup]="formGroup" class="form">
+  <ng-container *ngFor="let control of formConfig.controls | keyvalue">
+    <ng-container [ngSwitch]="control.value.controlType">
+      <app-input *ngSwitchCase="'input'" [formGroup]="formGroup" [controlConfig]="control.value"></app-input>
+      <app-checkbox *ngSwitchCase="'checkbox'" [formGroup]="formGroup" [controlConfig]="control.value"></app-checkbox>
+    </ng-container>
+  </ng-container>
+  <button *ngIf="formConfig.add" (click)="submitForm('add')" mat-flat-button [color]="formConfig.add?.value" [disabled]="formGroup.invalid">{{formConfig.add?.label}}</button>
+  <button *ngIf="formConfig.delete" (click)="submitForm('edit')" mat-flat-button [color]="formConfig.edit?.value" [disabled]="formGroup.invalid">{{formConfig.edit?.label}}</button>
+  <button *ngIf="formConfig.delete" (click)="submitForm('delete')" mat-flat-button [color]="formConfig.delete ?.value" [disabled]="formGroup.invalid">{{formConfig.delete?.label}}</button>
+</form>

@@ -1,0 +1,7 @@
+<mat-form-field class="matFormField">
+  <mat-select (valueChange)="changeSelect.emit($event)" [value]="'mainList'">
+    <ng-container *ngIf="config | async as options">
+      <mat-option *ngFor="let option of options" [value]="option.value">{{option.label}}</mat-option>
+    </ng-container>
+  </mat-select>
+</mat-form-field>
