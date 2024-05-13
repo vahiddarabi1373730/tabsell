@@ -1,0 +1,14 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container *ngFor="let col of displayedColumns"  [matColumnDef]="col">
+    <th mat-header-cell *matHeaderCellDef><mat-checkbox *ngIf="col==='select'"></mat-checkbox> {{col | translateHeader}} </th>
+    <td  mat-cell *matCellDef="let element">
+      <mat-checkbox *ngIf="col==='select'" (click)="click(element)"></mat-checkbox>
+      <mat-checkbox [checked]="element[col]" *ngIf="col==='completed'"></mat-checkbox>
+      <span *ngIf="col!=='completed'">{{element[col]}}</span>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+  </tr>
+</table>

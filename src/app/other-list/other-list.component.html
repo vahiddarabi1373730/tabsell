@@ -1,7 +1,12 @@
+<app-title-page title="سایر لیست ها"></app-title-page>
 <div class="container">
   <div class="list-todos">
-    <app-form-generator  (submitFormEmitter)="submitForm($event)" [formConfig]="formConfig"></app-form-generator>
-    <app-button [button]="button"></app-button>
+    <app-form-generator   (submitFormEmitter)="submitForm($event)" [formConfig]="formConfig"></app-form-generator>
+    <div class="operations">
+      <app-button [button]="button"></app-button>
+      <app-button [button]="addToMainList"></app-button>
+      <app-button [button]="editNameListButton"></app-button>
+    </div>
   </div>
-
+  <app-table (selectedRow)="onSelectedRow($event)" [displayedColumns]="displayColumns" [dataSource]="dataSource | async"></app-table>
 </div>

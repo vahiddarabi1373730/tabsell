@@ -1,11 +1,12 @@
 import {FormControl, FormGroup} from "@angular/forms";
 
 export interface Todo {
-  id: number;
-  title: string;
-  completed: boolean;
-  date: Date;
-  description: string;
+  id?: number;
+  title?: string;
+  completed?: boolean;
+  date?: Date;
+  description?: string;
+  select?:''
 
 }
 
@@ -32,8 +33,9 @@ export interface Button{
   operation:()=>void,
   text:string,
   color:Color,
-  hasIcon:boolean,
-  iconName:string
+  hasIcon?:boolean,
+  iconName?:string,
+  hostClass?:"lg" | 'md'
 }
 
 export interface SubmitForm{

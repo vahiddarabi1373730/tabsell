@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormConfig, SubmitForm} from "../../_models/models.interface";
+import {Button, FormConfig, SubmitForm} from "../../_models/models.interface";
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
@@ -9,6 +9,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class FormGeneratorComponent implements OnInit{
 
+  @Input() disabled!:boolean
+  @Output() formReady=new EventEmitter<FormGroup>()
   @Output() submitFormEmitter=new EventEmitter<SubmitForm>()
   @Input() formConfig!:FormConfig
   formGroup:FormGroup=new FormGroup<any>({});
@@ -16,14 +18,49 @@ export class FormGeneratorComponent implements OnInit{
     Object.keys(controls).forEach(control=>{
       const configControl=controls[control]
       this.formGroup.addControl(configControl.name,new FormControl(configControl.value,configControl.validators))
+      this.formReady.emit(this.formGroup)
     })
   }
 
   submitForm(operationType:string){
     this.submitFormEmitter.emit({operationType:operationType,form:this.formGroup})
   }
+
+  createButton(type:string,formConfig:FormConfig):Button{
+    let button!:Button
+    switch (type){
+      case "add":
+        button= {
+          color:formConfig.add?.value,
+          text:formConfig.add?.label as string,
+          operation:()=>{
+            this.submitForm('add')
+          }
+        }
+        break
+      case "edit":
+        button= {
+          color:formConfig.edit?.value,
+          text:formConfig.edit?.label as string,
+          operation:()=>{
+            this.submitForm('edit')
+          }
+        }
+        break
+      case "delete":
+        button= {
+          color:formConfig.delete?.value,
+          text:formConfig.delete?.label as string,
+          operation:()=>{
+            this.submitForm('delete')
+          }
+        }
+        break
+
+    }
+    return button
+  }
   ngOnInit() {
-    console.log(this.formConfig)
     this.buildControl(this.formConfig.controls)
   }
 }

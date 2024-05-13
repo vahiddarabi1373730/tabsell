@@ -5,6 +5,12 @@
 }
 
 .container{
-  height: 100%;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 135px);
+
+  & .grid{
+    width: 100%;
+    height: 100%;
+  }
 }

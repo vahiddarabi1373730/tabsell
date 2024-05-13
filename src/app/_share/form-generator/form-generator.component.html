@@ -5,7 +5,7 @@
       <app-checkbox *ngSwitchCase="'checkbox'" [formGroup]="formGroup" [controlConfig]="control.value"></app-checkbox>
     </ng-container>
   </ng-container>
-  <button *ngIf="formConfig.add" (click)="submitForm('add')" mat-flat-button [color]="formConfig.add?.value" [disabled]="formGroup.invalid">{{formConfig.add?.label}}</button>
-  <button *ngIf="formConfig.delete" (click)="submitForm('edit')" mat-flat-button [color]="formConfig.edit?.value" [disabled]="formGroup.invalid">{{formConfig.edit?.label}}</button>
-  <button *ngIf="formConfig.delete" (click)="submitForm('delete')" mat-flat-button [color]="formConfig.delete ?.value" [disabled]="formGroup.invalid">{{formConfig.delete?.label}}</button>
+  <app-button [disabled]="disabled" [button]="createButton('add',formConfig)"></app-button>
+  <app-button [disabled]="disabled" [button]="createButton('edit',formConfig)"></app-button>
+  <app-button [disabled]="disabled" [button]="createButton('delete',formConfig)"></app-button>
 </form>

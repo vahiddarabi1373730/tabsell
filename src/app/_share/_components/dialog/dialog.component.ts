@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {DialogRef} from "@angular/cdk/dialog";
-import {SubmitForm, ValueLabel} from "../../../_models/models.interface";
+import {SubmitForm} from "../../../_models/models.interface";
 import {ListTodosService} from "../../_services/list-todos.service";
 
 @Component({
@@ -17,8 +17,17 @@ export class DialogComponent {
 
   submit(submitForm:SubmitForm){
     this.DialogRef.close()
-    console.log(submitForm)
-    const newValues:ValueLabel[]=[...this.listTodosService.listTodos.getValue(),{label:submitForm.form.controls['newList'].value,value:Math.random()}]
-    this.listTodosService.listTodos.next(newValues)
+    const id=this.data.id
+    let oldList=this.listTodosService.listTodos.getValue()
+    if(id){
+      const editList=submitForm.form.controls['editList'].value
+      const index=oldList.findIndex(l=>l.value===id)
+      oldList.splice(index,1)
+      oldList.splice(index,0,{value:id,label:editList})
+    }else{
+      const newList=submitForm.form.controls['newList'].value
+      oldList=[...oldList,{label:newList,value:Math.random()}]
+    }
+    this.listTodosService.listTodos.next(oldList)
   }
 }

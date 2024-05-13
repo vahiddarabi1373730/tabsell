@@ -1,4 +1,4 @@
-<button mat-flat-button   [color]="button.color" (click)="button.operation()">
+<button [disabled]="disabled" mat-flat-button   [color]="button.color" (click)="button.operation()">
   <mat-icon *ngIf="button.hasIcon" class="mat-icon">{{button.iconName}}</mat-icon>
-  {{button.text}}
+  <span>{{button.text}}</span>
 </button>

@@ -15,8 +15,10 @@ export class InputComponent implements OnInit{
   formControl!:FormControl
 
 
+  clear(){
+    this.formControl.setValue(null)
+  }
   ngOnInit() {
-    console.log(this.controlConfig.style?.width)
     this.formControl=this.formGroup.controls[this.controlConfig.name] as FormControl
   }
 }

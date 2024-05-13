@@ -1,0 +1,17 @@
+<app-title-page title="لیست کار های انجام شده"></app-title-page>
+<div class="container">
+<ng-container *ngIf="dataSource | async as dataSource;">
+
+  <ng-container *ngIf="dataSource.length>0;else placeHolder">
+    <app-table (selectedRow)="selectedRow($event)" [displayedColumns]="displayColumns" [dataSource]="dataSource"></app-table>
+    <div class="operation">
+      <app-button [button]="button"></app-button>
+      <app-button [button]="back"></app-button>
+    </div>
+  </ng-container>
+</ng-container>
+  <ng-template #placeHolder>
+    <h1>کار انجام شده ای وجود ندارد </h1>
+    <app-button [button]="back"></app-button>
+  </ng-template>
+</div>

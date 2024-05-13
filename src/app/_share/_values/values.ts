@@ -11,13 +11,13 @@ export const ColumnTodo:ColDef[]=[
 ]
 
 export const  formConfig:FormConfig={
-  add:{value:"primary",label:"اضافه تسک جدید"},
-  edit:{value:"accent",label:"ویرایش تسک جدید"},
-  delete:{value:"warn",label:"حذف تسک جدید"},
+  add:{value:"primary",label:"ایجاد"},
+  edit:{value:"accent",label:"ویرایش "},
+  delete:{value:"warn",label:"حذف "},
   controls:{
     date:{value:"",name:"date",validators: {required:Validators.required},type:'input',controlType:"input",label:"تاریخ"},
     description:{value:"",name:"description",validators: {required:Validators.required},type:'input',controlType:"input",label:"توضیح"},
-    completed:{value:"",name:"completed",validators: {required:Validators.required},type:'checkbox',controlType:"checkbox",label:"تاریخ"},
+    completed:{value:false,name:"completed",validators: {required:Validators.required},type:'checkbox',controlType:"checkbox",label:"تاریخ"},
     title:{value:"",name:"title",validators: {required:Validators.required},type:'input',controlType:"input",label:"عنوان"},
     id:{value:"",name:"id",validators: {required:Validators.required},type:"",controlType:null,label:""},
   }

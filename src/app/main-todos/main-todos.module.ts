@@ -11,6 +11,7 @@ import {SelectModule} from "../_share/_components/select/select.module";
 import {ButtonComponent} from "../_share/button/button.component";
 import {ButtonModule} from "../_share/button/button.module";
 import {DialogModule} from "../_share/_components/dialog/dialog.module";
+import {TitlePageModule} from "../_share/title-page/title-page.module";
 const routes:Routes=[
   {path:"",component:MainTodosComponent},
 ]
@@ -28,7 +29,8 @@ const routes:Routes=[
     CheckboxModule,
     SelectModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    TitlePageModule
 
   ],
 })

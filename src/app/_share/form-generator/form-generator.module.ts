@@ -8,6 +8,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
 import {CheckboxModule} from "./_components/checkbox/checkbox.module";
 import {InputModule} from "./_components/input/input.module";
+import {ButtonModule} from "../button/button.module";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {InputModule} from "./_components/input/input.module";
         MatButtonModule,
         ReactiveFormsModule,
         CheckboxModule,
-        InputModule
+        InputModule,
+        ButtonModule
 
     ],
   exports: [

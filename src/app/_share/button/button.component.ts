@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, HostBinding, Input} from '@angular/core';
 import {Button} from "../../_models/models.interface";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
@@ -12,5 +12,11 @@ import {NgIf} from "@angular/common";
 })
 export class ButtonComponent {
 
-  @Input() button!:Button
+  @Input() button!: Button;
+  @Input() disabled!: boolean;
+
+  @HostBinding('class')
+  public get hostClass(): string | undefined{
+    return this.button.hostClass;
+  }
 }

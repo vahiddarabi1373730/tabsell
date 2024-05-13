@@ -1,9 +1,19 @@
+:host{
+  .operations{
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+  }
+}
 .list-todos{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 }
+
 .container{
-  height: 100%;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 135px);
+
 }

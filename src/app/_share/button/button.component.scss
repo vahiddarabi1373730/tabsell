@@ -1,4 +1,16 @@
+:host{
+  width: 95px;
+}
 button{
   display: flex;
   column-gap: 6px;
+  width: 100%;
+
+  & span{
+    font-size: 10px;
+  }
+}
+
+:host.lg{
+  width: 130px;
 }
